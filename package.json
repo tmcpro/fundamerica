@@ -1,0 +1,12 @@
+{
+    "name": "fundamerica",
+    "version": "0.1.0",
+    "description": "wrapper for the FundAmerica API",
+    "keywords": ["fundamerica", "api", "wrapper", "client"],
+    "author": {
+        "name" : "Tyler McIntyre",
+        "email": "tm@lucid21.com"
+    },
+    "main": "fundamerica.js",
+    "repository": ""
+}
