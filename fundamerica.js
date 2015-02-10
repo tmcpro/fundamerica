@@ -1,4 +1,3 @@
-//NG-AUxktDEAwDhalblv-o3CSbHJV7s6g
 var https = require('https');
 var querystring = require('querystring');
 
