@@ -77,7 +77,7 @@ var querystring = require('querystring');
         request.end();
     }
 
-    function _post(path, data, data, cb){
+    function _post(path, data, cb){
         var dstr = JSON.stringify(data);
         var opts = _getRequestOptions(path);
 
@@ -290,7 +290,7 @@ var querystring = require('querystring');
         },
 
         create: function(data, cb){
-            _post('entities', data, data, cb);
+            _post('entities', data, cb);
         },
 
         delete: function(key, cb){
