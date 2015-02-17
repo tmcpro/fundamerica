@@ -27,6 +27,8 @@ var querystring = require('querystring');
     function _requestCallback(cb, noParse){
         return function(response){
             var str = '';
+            var err = null;
+            err = response.statusCode >= 400 ? response.statusCode : null;
             response.on('data', function(chunk){
                 str += chunk;
             });
@@ -35,14 +37,14 @@ var querystring = require('querystring');
                 if(cb){
                     if(!noParse){
                         try{
-                            cb(null, JSON.parse(str));
+                            cb(err, JSON.parse(str));
                         }
                         catch(err){
                             cb(err);
                         }
                     }
                     else{
-                        cb(null, str);
+                        cb(err, str);
                     }
 
                 }
