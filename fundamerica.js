@@ -335,5 +335,9 @@ var querystring = require('querystring');
         }
     }
 
+    // get bank info from routing number
+    FundAmerica.bankinfo = function(routingno, cb) {
+        _get('bank_info/' + routingno, cb);
+    }
 
 }).call(this);
