@@ -1,7 +1,11 @@
-# Node.js API wrapper for Fund America
-Located: https://apps.fundamerica.com/support/documentation
+## Node.js API Wrapper for Fund America
 
-# Sample Code
+
+### Documentation
+Located [here](https://apps.fundamerica.com/support/documentation)
+
+
+### Sample Code
 ```
 var FundAmerica = require('fundamerica');
 FundAmerica.init('YOUR API KEY');
