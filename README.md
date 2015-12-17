@@ -2,8 +2,13 @@
 
 
 ### Documentation
-Located [here](https://apps.fundamerica.com/support/documentation)
+Offical Documentation is located [here](https://apps.fundamerica.com/support/documentation).
 
+Initialize Fundamerica by:
+
+`FundAmerica.init('api_key', 'fa_api_subdomain');`
+
+Checkout `fundamerica.js` for more information about endpoints in this package. 
 
 ### Sample Code
 ```
@@ -15,14 +20,14 @@ FundAmerica.init('YOUR API KEY', 'sandbox');
 // production
 // FundAmerica.init('YOUR API KEY', 'apps');
 
-function errorLog(error){
-    console.log(error);
+function errorLog(err){
+    console.log(err);
 }
 
 FundAmerica.info(function(err, data) {
-    console.log(data);
     if(err){
         console.log(err);
     }
+    console.log(data);
 });
 ```
