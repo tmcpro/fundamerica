@@ -8,7 +8,12 @@ Located [here](https://apps.fundamerica.com/support/documentation)
 ### Sample Code
 ```
 var FundAmerica = require('fundamerica');
-FundAmerica.init('YOUR API KEY');
+
+// sandbox
+FundAmerica.init('YOUR API KEY', 'sandbox');
+
+// production
+// FundAmerica.init('YOUR API KEY', 'apps');
 
 function errorLog(error){
     console.log(error);
