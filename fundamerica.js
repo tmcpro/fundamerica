@@ -15,10 +15,11 @@ var querystring = require('querystring');
     }
     //private members and functions
     var _authKey;
+    var _subDomain;
 
     function _getRequestOptions(path){
         return {
-            host: 'apps.fundamerica.com',
+            host: _subDomain + '.fundamerica.com',
             path: '/api/' + path,
             auth: _authKey
         };
@@ -94,8 +95,9 @@ var querystring = require('querystring');
     }
 
     //public methods for setting API key
-    FundAmerica.init = function(key){
+    FundAmerica.init = function(key, subDomain){
         _authKey = key;
+        _subDomain = subDomain;
     }
 
     //Account Info
@@ -196,7 +198,7 @@ var querystring = require('querystring');
         }
     }
 
-    //Trade Reviews 
+    //Trade Reviews
     FundAmerica.tradeReviews = {
         list: function(cb){
             _get('trade_reviews', cb);
