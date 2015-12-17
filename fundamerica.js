@@ -342,4 +342,47 @@ var querystring = require('querystring');
         _get('bank_info/' + routingno, cb);
     }
 
+    //Distributions
+    FundAmerica.distributions = {
+        list: function(cb){
+            _get('distributions', cb);
+        },
+
+        getOne: function(key, cb){
+            _get('distributions/' + key, cb);
+        },
+
+        create: function(data, cb){
+            _post('distributions', data, cb);
+        },
+
+        delete: function(key, cb){
+            _delete('distributions/' + key, cb);
+        },
+
+        edit: function(key, data, cb){
+            _patch('distributions/' + key, data, cb);
+        },
+    }
+
+    //Investor Payments
+    FundAmerica.investorPayments = {
+        list: function(cb){
+            _get('investor_payments', cb);
+        },
+
+        getOne: function(key, cb){
+            _get('investor_payments/' + key, cb);
+        },
+
+        // get payments from a particular investor
+        listFromInvestor: function(key, cb){
+            _get('investors/' + key + '/investor_payments/', cb);
+        },
+
+        edit: function(key, data, cb){
+            _patch('investor_payments/' + key, data, cb);
+        },
+    }
+
 }).call(this);
