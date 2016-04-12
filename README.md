@@ -41,12 +41,12 @@ FundAmerica.investments.list(function(err, data) {
 });
 
 // get page 2 of offerings
-FundAmerica.offerings.list(function(err, data) {
+FundAmerica.offerings.list({page: 2}, function(err, data) {
     console.log(data);
     if(err){
         console.log(err);
     }
-}, {page: 2});
+});
 ```
 
 The query strings `page` and `per` can be sent to a list action to change which page is being viewed and how many resources are included in a page.
