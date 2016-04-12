@@ -71,7 +71,13 @@ var querystring = require('querystring');
         }
     }
 
-    function _get(path, cb, queryParams, noParse){
+    function _get(path, queryParams, cb, noParse) {
+        // if queryParams is not specified, cb will be the in queryParams' position
+        if (!cb) {
+          cb = queryParams;
+          queryParams = null;
+        }
+
         var opts = _getRequestOptions(path, queryParams);
         var request = https.request(opts, _requestCallback(cb, noParse));
         request.end();
@@ -123,8 +129,8 @@ var querystring = require('querystring');
 
     //ACH
     FundAmerica.ach = {
-        list: function(cb, queryParams){
-            _get('ach_authorizations', cb, queryParams);
+        list: function(queryParams, cb){
+            _get('ach_authorizations', queryParams, cb);
         },
 
         getOne: function(key, cb){
@@ -142,8 +148,8 @@ var querystring = require('querystring');
 
     //Background Check
     FundAmerica.backgroundCheck = {
-        list: function(cb, queryParams){
-            _get('background_checks', cb, queryParams);
+        list: function(queryParams, cb){
+            _get('background_checks', queryParams, cb);
         },
 
         getOne: function(key, cb){
@@ -157,8 +163,8 @@ var querystring = require('querystring');
 
     //Billing Logs
     FundAmerica.billingLogs = {
-        list: function(cb, queryParams){
-            _get('billing_logs', cb, queryParams);
+        list: function(queryParams, cb){
+            _get('billing_logs', queryParams, cb);
         },
 
         getOne: function(key, cb){
@@ -168,8 +174,8 @@ var querystring = require('querystring');
 
     //Close Offering Request
     FundAmerica.closeOfferingRequests = {
-        list: function(cb, queryParams){
-            _get('close_offering_requests', cb, queryParams);
+        list: function(queryParams, cb){
+            _get('close_offering_requests', queryParams, cb);
         },
 
         getOne: function(key, cb){
@@ -183,8 +189,8 @@ var querystring = require('querystring');
 
     //Cancel Offering Requests
     FundAmerica.cancelOfferingRequests = {
-        list: function(cb, queryParams){
-            _get('cancel_offering_requests', cb, queryParams);
+        list: function(queryParams, cb){
+            _get('cancel_offering_requests', queryParams, cb);
         },
 
         getOne: function(key, cb){
@@ -205,8 +211,8 @@ var querystring = require('querystring');
 
     //Webhooks
     FundAmerica.webhookLogs = {
-        list: function(cb, queryParams){
-            _get('webhook_logs', cb, queryParams);
+        list: function(queryParams, cb){
+            _get('webhook_logs', queryParams, cb);
         },
 
         getOne: function(key, cb){
@@ -216,8 +222,8 @@ var querystring = require('querystring');
 
     //Trade Reviews
     FundAmerica.tradeReviews = {
-        list: function(cb, queryParams){
-            _get('trade_reviews', cb, queryParams);
+        list: function(queryParams, cb){
+            _get('trade_reviews', queryParams, cb);
         },
 
         getOne: function(key, cb){
@@ -227,8 +233,8 @@ var querystring = require('querystring');
 
     //Cancel Offering Requests
     FundAmerica.cancelOfferingRequests = {
-        list: function(cb, queryParams){
-            _get('cancel_offering_requests', cb, queryParams);
+        list: function(queryParams, cb){
+            _get('cancel_offering_requests', queryParams, cb);
         },
 
         getOne: function(key, cb){
@@ -242,8 +248,8 @@ var querystring = require('querystring');
 
     //Escrow Agreements
     FundAmerica.escrowAgreements = {
-        list: function(cb, queryParams){
-            _get('escrow_agreements', cb, queryParams);
+        list: function(queryParams, cb){
+            _get('escrow_agreements', queryParams, cb);
         },
 
         getOne: function(key, cb){
@@ -257,8 +263,8 @@ var querystring = require('querystring');
 
     //Escrow Service Applications
     FundAmerica.escrowServiceApplications = {
-        list: function(cb, queryParams){
-            _get('escrow_service_applications', cb, queryParams);
+        list: function(queryParams, cb){
+            _get('escrow_service_applications', queryParams, cb);
         },
 
         getOne: function(key, cb){
@@ -272,8 +278,8 @@ var querystring = require('querystring');
 
     //Offerings
     FundAmerica.offerings = {
-        list: function(cb, queryParams){
-          _get('offerings', cb, queryParams);
+        list: function(queryParams, cb){
+          _get('offerings', queryParams, cb);
         },
 
         getOne: function(key, cb){
@@ -299,8 +305,8 @@ var querystring = require('querystring');
 
     //Entities
     FundAmerica.entities = {
-        list: function(cb, queryParams){
-            _get('entities', cb, queryParams);
+        list: function(queryParams, cb){
+            _get('entities', queryParams, cb);
         },
 
         getOne: function(key, cb){
@@ -326,8 +332,8 @@ var querystring = require('querystring');
 
     //Investments
     FundAmerica.investments = {
-        list: function(cb, queryParams){
-            _get('investments', cb, queryParams);
+        list: function(queryParams, cb){
+            _get('investments', queryParams, cb);
         },
 
         getOne: function(key, cb){
@@ -358,8 +364,8 @@ var querystring = require('querystring');
 
     //Distributions
     FundAmerica.distributions = {
-        list: function(cb, queryParams){
-            _get('distributions', cb, queryParams);
+        list: function(queryParams, cb){
+            _get('distributions', queryParams, cb);
         },
 
         getOne: function(key, cb){
@@ -381,8 +387,8 @@ var querystring = require('querystring');
 
     //Investor Payments
     FundAmerica.investorPayments = {
-        list: function(cb, queryParams){
-            _get('investor_payments', cb, queryParams);
+        list: function(queryParams, cb){
+            _get('investor_payments', queryParams, cb);
         },
 
         getOne: function(key, cb){
