@@ -330,6 +330,33 @@ var querystring = require('querystring');
         }
     }
 
+    //Investors
+    FundAmerica.investors = {
+        list: function(queryParams, cb){
+            _get('investors', queryParams, cb);
+        },
+
+        getOne: function(key, cb){
+            _get('investors/' + key, cb);
+        },
+
+        create: function(data, cb){
+            _post('investors', data, cb);
+        },
+
+        delete: function(key, cb){
+            _delete('investors/' + key, cb);
+        },
+
+        edit: function(key, data, cb){
+            _patch('investors/' + key, data, cb);
+        },
+
+        achAuths: function(key, cb){
+            _get('investors/' + key + "/achauthorizations", cb);
+        }
+    }
+
     //Investments
     FundAmerica.investments = {
         list: function(queryParams, cb){
